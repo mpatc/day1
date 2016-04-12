@@ -1,0 +1,10 @@
+body {
+background-color: lime
+}
+h1 {
+  border: 1px dotted #000;
+}
+#number {
+  font-style: oblique;
+  font-size: 300%
+}
