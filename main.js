@@ -3,15 +3,15 @@ document.addEventListener("DOMContentLoaded", init)
       var answer;
     document.getElementById('butts').addEventListener('click', start())
     function start(){
-    var num1 = Math.floor(Math.random() * 10) + 1
-    var num2 = Math.floor(Math.random() * 10) + 1
+    var num1 = Math.floor(Math.random() * 100) + 1
+    var num2 = Math.floor(Math.random() * 100) + 1
     var eq = Math.floor(Math.random() * 4) + 1
     document.getElementById("first").textContent = num1
     document.getElementById("third").textContent = num2
     switch (eq) {
     case 1:
     document.getElementById("second").textContent = "/"
-    answer = num1 / num2
+    answer = (num1 / num2).toFixed(3)
     break;
     case 2:
     document.getElementById("second").textContent = "+"
@@ -44,16 +44,16 @@ document.addEventListener("DOMContentLoaded", init)
   document.getElementById("submit").addEventListener('click', tester)
 
   function tester(event){
-      if (event.target.matches('button')) {
+      if (event.target.matches('button')|| e.keyCode == "s") {
         var solve = parseInt(document.getElementById("number").textContent)
         if (solve == answer) {
           document.getElementById("title").textContent = "WINNER!"
-          document.getElementById("score").textContent += 1
+          document.getElementById("score").textContent++
 
           setTimeout(start, 3000)
         } else {
           document.getElementById("title").textContent = "NONO! The answer is " + answer
-          document.getElementById("score").textContent += 1
+          document.getElementById("score").textContent-+
           setTimeout(start, 3000)
         }
       }
@@ -69,15 +69,15 @@ function keyP(e) {
   if (!isNaN(String.fromCharCode(e.keyCode))) {
   document.getElementById("number").textContent += String.fromCharCode(e.keyCode)
 } else if (String.fromCharCode(e.keyCode) == ".") {
-document.getElementById("number").textContent += String.fromCharCode(e.keyCode)
+document.getElementById("number").textContent += "."
+} else if (String.fromCharCode(e.keyCode) == "-") {
+document.getElementById("number").textContent += "-"
 } else if (String.fromCharCode(e.keyCode) == "s") {
-  tester(e);
-
+  tester(e); // submit button
 } else if (String.fromCharCode(e.keyCode) == "d") {
-  document.getElementById("number").textContent = ""
-
+  document.getElementById("number").textContent = "" // clear
 } else if (String.fromCharCode(e.keyCode) == "x") {
-  start();
+  start(); // new problem / reset
 }
 }
 
