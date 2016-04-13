@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", init)
           setTimeout(start, 3000)
         } else {
           document.getElementById("title").textContent = "NONO! The answer is " + answer
-          document.getElementById("score").textContent-+
+          document.getElementById("score").textContent--
           setTimeout(start, 3000)
         }
       }
