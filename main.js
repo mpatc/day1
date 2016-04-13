@@ -1,3 +1,6 @@
+"use strict";
+
+
 document.addEventListener("DOMContentLoaded", init)
 
 function init() {
@@ -51,7 +54,6 @@ function init() {
             if (solve == answer) {
                 document.getElementById("title").textContent = "WINNER!"
                 document.getElementById("score").textContent++
-
                     setTimeout(start, 3000)
             } else {
                 document.getElementById("title").textContent = "NONO! The answer is " + answer
@@ -78,9 +80,9 @@ function init() {
         } else if (String.fromCharCode(e.keyCode) == "s") {
             tester(e); // submit button
         } else if (String.fromCharCode(e.keyCode) == "d") {
-            document.getElementById("number").textContent = "" // clear
+            document.getElementById("number").textContent = "" // clear button
         } else if (String.fromCharCode(e.keyCode) == "x") {
-            start(); // new problem / reset
+            start(); // new problem / reset button
         }
     }
 
