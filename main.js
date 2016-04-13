@@ -41,7 +41,9 @@ document.addEventListener("DOMContentLoaded", init)
             document.getElementById("number").textContent = ""
           }
   })
-  document.getElementById("submit").addEventListener('click', function(event){
+  document.getElementById("submit").addEventListener('click', tester)
+
+  function tester(event){
       if (event.target.matches('button')) {
         var solve = parseInt(document.getElementById("number").textContent)
         if (solve == answer) {
@@ -55,10 +57,28 @@ document.addEventListener("DOMContentLoaded", init)
           setTimeout(start, 3000)
         }
       }
-})
+}
 document.getElementById("skip").addEventListener('click', function(event){
     if (event.target.matches('button')) {
       start();
     }
 })
+document.addEventListener("keypress", keyP)
+function keyP(e) {
+  console.log(e)
+  if (!isNaN(String.fromCharCode(e.keyCode))) {
+  document.getElementById("number").textContent += String.fromCharCode(e.keyCode)
+} else if (String.fromCharCode(e.keyCode) == ".") {
+document.getElementById("number").textContent += String.fromCharCode(e.keyCode)
+} else if (String.fromCharCode(e.keyCode) == "s") {
+  tester(e);
+
+} else if (String.fromCharCode(e.keyCode) == "d") {
+  document.getElementById("number").textContent = ""
+
+} else if (String.fromCharCode(e.keyCode) == "x") {
+  start();
+}
+}
+
 }
