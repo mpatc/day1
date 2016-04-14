@@ -11,6 +11,9 @@ h1 {
 table, tr, td {
     background-color: transparent;
 }
+.butts {
+  display: inline-block;
+}
 div table tr td {
     background-color: CD6600 !important;
 }
